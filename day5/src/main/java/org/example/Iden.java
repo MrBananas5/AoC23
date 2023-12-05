@@ -1,0 +1,5 @@
+package org.example;
+
+public enum Iden {
+    SEED,SOIL,FERTILIZER,WATER,LIGHT,TEMPERATURE,HUMIDITY,LOCATION;
+}
