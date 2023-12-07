@@ -8,17 +8,17 @@ public enum Card {
     private final char c;
     private final int val;
 
-    Card(int i){
+    Card(int i){ // If a card is given as a number
         this.c = (char) (i+'0');
         this.val = i;
     }
-    Card(char c, int i){
+    Card(char c, int i){ //if a card is given as a character
         this.c = c;
         this.val = i;
     }
 
 
-    public static Card fromChar(char c) {
+    public static Card fromChar(char c) { //searches through card types until one matching c, returns that.
         for (Card ca : values()){
             if (ca.c == c){return ca;}
         }
@@ -28,6 +28,6 @@ public enum Card {
         return this.c;
     }
 
-    public int getVal() {return this.val;
-    }
+    public int getVal() {return this.val;}
+
 }

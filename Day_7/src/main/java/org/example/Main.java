@@ -11,10 +11,8 @@ public class Main { //gave up on this later lol
     public static void main(String[] args) throws FileNotFoundException {
         ArrayList<Hand> hands = new ArrayList<>();
         Scanner sc = new Scanner(new File("C:/Users/pek14/Documents/Advent of Code/AoC23/Day_7/src/main/java/org/example/input7.txt"));
-        while (sc.hasNextLine()){
-            hands.add(new Hand(sc.nextLine()));
-        }
-        boolean swapped;// me bubble sort
+        while (sc.hasNextLine()){hands.add(new Hand2(sc.nextLine()));}//creates the hands or hand2(part 2)
+        boolean swapped;// bubble sorts them
         for (int i =0; i < hands.size()-1;i++) {
             swapped = false;
             for (int j = 0; j < hands.size() - i - 1; j++) {
@@ -27,7 +25,7 @@ public class Main { //gave up on this later lol
         }
     int n = 0;
     for (int i =0; i < hands.size();i++) {
-        System.out.printf("%s %d %d %d %d\n",hands.get(i).getHand(),  hands.get(i).getBid(),(i+1),(i+1)*hands.get(i).getBid(),hands.get(i).getType());
+        //System.out.printf("%s %d %d %d %d\n",hands.get(i).getHand(),  hands.get(i).getBid(),(i+1),(i+1)*hands.get(i).getBid(),hands.get(i).getType()); //prints the info about every hand
         n += (i+1)*hands.get(i).getBid();
     }
     System.out.println(n);
