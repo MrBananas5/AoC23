@@ -1,5 +1,5 @@
 inp = [i.replace("\n","") for i in open("input7.txt","r")]
-values = ["J","2","3","4","5","6","7","8","9","T","Q","K","A"]
+values = ["2","3","4","5","6","7","8","9","T","J","Q","K","A"]
 
 
 hands = [] # to be populated with hand objects
@@ -10,10 +10,10 @@ class hand():
         self.bid = int (line.split(" ")[1])
         counts = {}
         for i in self.cards:counts[i] = self.cards.count(i) 
-        counts["J"] = 0
+        #counts["J"] = 0
         self.counts = [counts[i] for i in counts.keys()]
         self.counts.sort(reverse=True)
-        self.counts[0] += self.cards.count("J") 
+        #self.counts[0] += self.cards.count("J") 
     def compare(self,to): # not
         if to.counts[0] > self.counts[0]: return False
         elif to.counts[0] < self.counts[0] : return True
@@ -42,6 +42,6 @@ for i in range(0,len(hands)-1) :
         
 n = 0
 for i in range(0,len(hands)):
-    #print(hands[i].cards,hands[i].bid,i+1,hands[i].bid*(i+1))
+    print(hands[i].cards,hands[i].bid,i+1,hands[i].bid*(i+1))
     n += (i+1)*hands[i].bid
 print(n)

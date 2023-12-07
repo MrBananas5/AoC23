@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.Scanner;
 
-public class Hand {
+public class Hand { //hand class
     private final Card[] cards;
     private final int bid;
     private final int type;
@@ -19,25 +19,26 @@ public class Hand {
         bid = sc.nextInt();
         for (Card c: cards){
             int n = count(c);
-            if (counts[0] < n){counts[0] = n;q=c;}
+            if (counts[0] < n){counts[1] = counts [0];counts[0] = n;q=c;}
             else if (counts[1] < n && q.getVal() != c.getVal()) {
                     counts[1] = n;
                 }
 
         }
 
+
         switch (counts[0]) {
             case 5 -> type = 6;
             case 4 -> type = 5;
             case 3 -> {
-                    if (counts[1] == 2) {type = 4;break;}
-                    type = 3;
-                }
-                case 2 -> {
-                    if (counts[1] == 2) {type = 2;break;}
-                    type = 1;
-                }
-                default -> type = 0;
+                System.out.printf("%s %d %d\n",s,counts[0],counts[1]);
+                if (counts[1] == 2) {System.out.println("AAAAAAAAAA");type = 4;break;}
+                type = 3;}
+            case 2 -> {
+
+                if (counts[1] == 2) {type = 2;break;}
+                type = 1;}
+            default -> type = 0;
             }
 
     }
